@@ -1,7 +1,6 @@
 <?php
 /**
- * Services preview — pulls the first 6 published Service CPT entries,
- * falls back to hard-coded list if none exist yet.
+ * Services preview — image-led cards.
  */
 
 $services = get_posts( array(
@@ -12,12 +11,12 @@ $services = get_posts( array(
 ) );
 
 $fallback = array(
-	array( 'Haircut',          'Precision cuts shaped to your face, hair texture, and lifestyle.' ),
-	array( 'Hair Color',       'Lived-in balayage, dimensional highlights, and rich single-process colour.' ),
-	array( 'Eyebrow Services', 'Shaping, tinting, and tidy-ups that frame your features beautifully.' ),
-	array( 'Hair Styling',     'Blowouts, updos, and event styling that hold from morning to last dance.' ),
-	array( 'Makeup',           'Soft, polished makeup for weddings, photoshoots, and special occasions.' ),
-	array( 'Hair Treatments',  'Restorative care for shine, strength, and softness from root to ends.' ),
+	array( 'haircut',    'Haircut',          'Precision Cuts',     'Shaped to your face, hair texture, and lifestyle.',                                'https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=900&q=70' ),
+	array( 'color',      'Colour',           'Lived-in Colour',    'Balayage, highlights, and rich single-process colour.',                            'https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=900&q=70' ),
+	array( 'brows',      'Brows',            'Eyebrow Services',   'Shaping, tinting, and tidy-ups that frame your features.',                         'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=70' ),
+	array( 'styling',    'Styling',          'Hair Styling',       'Blowouts, updos, and event styling that hold all night.',                          'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=70' ),
+	array( 'makeup',     'Makeup',           'Polished Makeup',    'Soft, long-wearing makeup for weddings and special occasions.',                    'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=70' ),
+	array( 'treatments', 'Treatments',       'Restorative Care',   'Olaplex, K18, and bespoke deep conditioning for shine and strength.',              'https://images.unsplash.com/photo-1521146764736-56c929d59c83?auto=format&fit=crop&w=900&q=70' ),
 );
 ?>
 
@@ -37,27 +36,45 @@ $fallback = array(
 				$i = 0;
 				foreach ( $services as $svc ) :
 					$i++;
-					setup_postdata( $svc );
+					$thumb = get_the_post_thumbnail_url( $svc, 'large' );
+					if ( ! $thumb ) {
+						$thumb = $fallback[ ( $i - 1 ) % count( $fallback ) ][4];
+					}
+					$short_label = get_post_meta( $svc->ID, '_ths_short_label', true );
+					if ( ! $short_label ) {
+						$short_label = get_the_title( $svc );
+					}
 					?>
-					<article class="service-tile">
-						<div class="service-tile__num"><?php echo esc_html( str_pad( $i, 2, '0', STR_PAD_LEFT ) ); ?></div>
-						<h3 class="service-tile__title"><?php echo esc_html( get_the_title( $svc ) ); ?></h3>
-						<p class="service-tile__desc"><?php echo esc_html( get_the_excerpt( $svc ) ); ?></p>
-						<a href="<?php echo esc_url( get_permalink( $svc ) ); ?>" class="service-tile__cta"><?php esc_html_e( 'Details', 'tanya-hair-salon' ); ?> <span class="arrow">&rarr;</span></a>
-					</article>
+					<a class="service-card" href="<?php echo esc_url( get_permalink( $svc ) ); ?>">
+						<div class="service-card__media">
+							<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( get_the_title( $svc ) ); ?>" loading="lazy" />
+						</div>
+						<div class="service-card__body">
+							<div class="service-card__num"><?php echo esc_html( str_pad( $i, 2, '0', STR_PAD_LEFT ) . ' — ' . $short_label ); ?></div>
+							<h3 class="service-card__title"><?php echo esc_html( get_the_title( $svc ) ); ?></h3>
+							<p class="service-card__desc"><?php echo esc_html( get_the_excerpt( $svc ) ); ?></p>
+							<span class="service-card__cta"><?php esc_html_e( 'Details', 'tanya-hair-salon' ); ?> <span class="arrow">&rarr;</span></span>
+						</div>
+					</a>
 					<?php
 				endforeach;
-				wp_reset_postdata();
 			else :
 				$i = 0;
 				foreach ( $fallback as $row ) :
 					$i++;
+					list( $slug, $tag, $title, $desc, $img ) = $row;
 					?>
-					<article class="service-tile">
-						<div class="service-tile__num"><?php echo esc_html( str_pad( $i, 2, '0', STR_PAD_LEFT ) ); ?></div>
-						<h3 class="service-tile__title"><?php echo esc_html( $row[0] ); ?></h3>
-						<p class="service-tile__desc"><?php echo esc_html( $row[1] ); ?></p>
-					</article>
+					<a class="service-card" href="<?php echo esc_url( home_url( '/services/#' . $slug ) ); ?>">
+						<div class="service-card__media">
+							<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $title ); ?>" loading="lazy" />
+						</div>
+						<div class="service-card__body">
+							<div class="service-card__num"><?php echo esc_html( str_pad( $i, 2, '0', STR_PAD_LEFT ) . ' — ' . $tag ); ?></div>
+							<h3 class="service-card__title"><?php echo esc_html( $title ); ?></h3>
+							<p class="service-card__desc"><?php echo esc_html( $desc ); ?></p>
+							<span class="service-card__cta"><?php esc_html_e( 'Details', 'tanya-hair-salon' ); ?> <span class="arrow">&rarr;</span></span>
+						</div>
+					</a>
 					<?php
 				endforeach;
 			endif;

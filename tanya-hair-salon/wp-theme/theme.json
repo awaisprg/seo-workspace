@@ -15,15 +15,16 @@
       "customGradient": false,
       "defaultPalette": false,
       "palette": [
-        { "slug": "bg",         "name": "Background",  "color": "#FAF7F2" },
+        { "slug": "bg",         "name": "Background",  "color": "#F7F2EA" },
         { "slug": "surface",    "name": "Surface",     "color": "#FFFFFF" },
-        { "slug": "cream",      "name": "Cream",       "color": "#F2EBE1" },
-        { "slug": "blush",      "name": "Blush",       "color": "#E8D3CB" },
-        { "slug": "blush-deep", "name": "Blush Deep",  "color": "#C9A29A" },
-        { "slug": "ink",        "name": "Ink",         "color": "#2B2622" },
-        { "slug": "ink-soft",   "name": "Ink Soft",    "color": "#6B635C" },
-        { "slug": "line",       "name": "Line",        "color": "#E5DED4" },
-        { "slug": "gold",       "name": "Gold",        "color": "#B89968" }
+        { "slug": "cream",      "name": "Cream",       "color": "#EFE7DA" },
+        { "slug": "taupe",      "name": "Taupe",       "color": "#D8C9B6" },
+        { "slug": "taupe-deep", "name": "Taupe Deep",  "color": "#A88E72" },
+        { "slug": "blush",      "name": "Blush",       "color": "#E5D2C7" },
+        { "slug": "ink",        "name": "Ink",         "color": "#1F1B17" },
+        { "slug": "ink-soft",   "name": "Ink Soft",    "color": "#5C544B" },
+        { "slug": "line",       "name": "Line",        "color": "#DCD3C4" },
+        { "slug": "gold",       "name": "Gold",        "color": "#A98A55" }
       ]
     },
     "typography": {

@@ -142,6 +142,44 @@ function ths_customize( $wp_customize ) {
 add_action( 'customize_register', 'ths_customize' );
 
 /**
+ * Add `is-light-header` body class on every page except the homepage,
+ * so the sticky header text stays legible against light page backgrounds.
+ */
+function ths_body_class( $classes ) {
+	if ( ! is_front_page() ) {
+		$classes[] = 'is-light-header';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'ths_body_class' );
+
+/**
+ * Customizer extras: brands list.
+ */
+function ths_customize_extras( $wp_customize ) {
+	$wp_customize->add_setting( 'ths_brands', array(
+		'default'           => 'Olaplex, K18, Davines, Kérastase, Wella',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+	$wp_customize->add_control( 'ths_brands', array(
+		'label'       => __( 'Trusted brands (comma-separated)', 'tanya-hair-salon' ),
+		'section'     => 'ths_business',
+		'type'        => 'text',
+		'description' => __( 'Shown in the homepage Trusted Brands strip.', 'tanya-hair-salon' ),
+	) );
+
+	$wp_customize->add_setting( 'ths_hero_image', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_url_raw',
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ths_hero_image', array(
+		'label'   => __( 'Homepage hero background image', 'tanya-hair-salon' ),
+		'section' => 'ths_business',
+	) ) );
+}
+add_action( 'customize_register', 'ths_customize_extras', 11 );
+
+/**
  * Schema.org HairSalon JSON-LD output.
  */
 require_once THS_DIR . '/inc/schema.php';

@@ -4,6 +4,22 @@ A complete design + build kit for a modern, elegant WordPress site for **TANYA H
 
 ---
 
+## v2 Refinement (matches Filomena/Megas editorial direction)
+
+Compared to v1, this pass elevates the design closer to the high-end Coquitlam salon genre:
+
+- **Full-bleed editorial hero** with overlaid serif headline (italic accent word) and slow Ken-Burns image zoom — replaces the split layout.
+- **Image-led service cards** — each service is its own photograph with a hover reveal of the description and CTA — replaces the bordered text-tile grid.
+- **New "The Experience" ritual section** — Consult / Cleanse / Craft / Finish — adds the narrative layer high-end salons all use.
+- **Editorial pull-quote band** — single dark-ink testimonial section between services and about.
+- **Trusted Brands strip** — Olaplex / K18 / Davines / Kérastase / Wella — borrows the product credibility row from Filomena/Megas product pages.
+- **Refined palette** — warmer cream `#F7F2EA`, taupe accent `#D8C9B6` (replaces the pink-leaning blush), deeper ink `#1F1B17`, richer gold `#A98A55` — less "feminine pastel," more "luxe neutral."
+- **Bigger display type** — hero scales up to 132px, tighter letter-spacing, italic accent treatment.
+- **Editorial pricing list** on Services page — name + small description left, italic taupe price right, full-width hover underline animation — replaces the row-grid table.
+- **Smarter header** — transparent over the dark hero, fades to solid cream on scroll; auto-switches to dark text on interior pages via `body.is-light-header`.
+
+---
+
 ## 1. Brand Direction
 
 **Personality:** Elegant · Feminine · Minimal · Approachable Luxury

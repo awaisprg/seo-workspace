@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="is-light-header">
 
 <header class="site-header">
   <div class="container site-header__inner">
@@ -39,51 +39,55 @@
 
   <section class="section" style="padding-top:0;">
     <div class="container reveal">
-      <div class="services-list">
 
-        <article id="haircut" class="services-list__row">
-          <div class="services-list__num">01</div>
-          <h3 class="services-list__title">Haircut</h3>
-          <p class="services-list__desc">Precision cuts shaped to your face, hair texture, and lifestyle. Includes a wash, scalp massage, and finishing style.</p>
-          <a href="index.html#book" class="services-list__cta link">From $65 <span class="arrow">→</span></a>
+      <div class="eyebrow" style="margin-bottom:32px;">— Hair</div>
+      <div class="pricing-list">
+        <article id="haircut" class="pricing-list__row">
+          <div class="pricing-list__name">Haircut <small>Wash, cut, scalp massage, and finishing style.</small></div>
+          <div class="pricing-list__price">from $65</div>
         </article>
-
-        <article id="color" class="services-list__row">
-          <div class="services-list__num">02</div>
-          <h3 class="services-list__title">Hair Color</h3>
-          <p class="services-list__desc">Lived-in balayage, dimensional highlights, and rich single-process colour — finished with toner and a hydrating treatment.</p>
-          <a href="index.html#book" class="services-list__cta link">From $140 <span class="arrow">→</span></a>
+        <article id="color" class="pricing-list__row">
+          <div class="pricing-list__name">Single-Process Colour <small>Rich, glossy colour with toner and a hydrating treatment.</small></div>
+          <div class="pricing-list__price">from $140</div>
         </article>
-
-        <article id="brows" class="services-list__row">
-          <div class="services-list__num">03</div>
-          <h3 class="services-list__title">Eyebrow Services</h3>
-          <p class="services-list__desc">Shaping, tinting, and tidy-ups that frame your features beautifully. Threading and waxing both available.</p>
-          <a href="index.html#book" class="services-list__cta link">From $20 <span class="arrow">→</span></a>
+        <article id="balayage" class="pricing-list__row">
+          <div class="pricing-list__name">Balayage / Highlights <small>Lived-in, sun-kissed dimension that grows out beautifully.</small></div>
+          <div class="pricing-list__price">from $220</div>
         </article>
-
-        <article id="styling" class="services-list__row">
-          <div class="services-list__num">04</div>
-          <h3 class="services-list__title">Hair Styling</h3>
-          <p class="services-list__desc">Blowouts, updos, and event styling for weddings, photoshoots, and big nights — built to hold from morning to last dance.</p>
-          <a href="index.html#book" class="services-list__cta link">From $55 <span class="arrow">→</span></a>
+        <article id="treatments" class="pricing-list__row">
+          <div class="pricing-list__name">Hair Treatments <small>Olaplex, K18, and bespoke deep conditioning.</small></div>
+          <div class="pricing-list__price">from $40</div>
         </article>
-
-        <article id="makeup" class="services-list__row">
-          <div class="services-list__num">05</div>
-          <h3 class="services-list__title">Makeup</h3>
-          <p class="services-list__desc">Soft, polished makeup for weddings, photoshoots, and special occasions — natural, long-wearing, and beautifully photographed.</p>
-          <a href="index.html#book" class="services-list__cta link">From $85 <span class="arrow">→</span></a>
-        </article>
-
-        <article id="treatments" class="services-list__row">
-          <div class="services-list__num">06</div>
-          <h3 class="services-list__title">Hair Treatments</h3>
-          <p class="services-list__desc">Restorative care for shine, strength, and softness from root to ends — Olaplex, K18, and bespoke deep conditioning.</p>
-          <a href="index.html#book" class="services-list__cta link">From $40 <span class="arrow">→</span></a>
-        </article>
-
       </div>
+
+      <div class="eyebrow" style="margin:64px 0 32px;">— Styling & Special Occasion</div>
+      <div class="pricing-list">
+        <article id="styling" class="pricing-list__row">
+          <div class="pricing-list__name">Hair Styling <small>Blowouts and event styling that hold from morning to last dance.</small></div>
+          <div class="pricing-list__price">from $55</div>
+        </article>
+        <article id="updo" class="pricing-list__row">
+          <div class="pricing-list__name">Updo <small>Bridesmaid, prom, and special-occasion updos.</small></div>
+          <div class="pricing-list__price">from $90</div>
+        </article>
+        <article id="makeup" class="pricing-list__row">
+          <div class="pricing-list__name">Makeup <small>Soft, polished, long-wearing makeup for weddings and photoshoots.</small></div>
+          <div class="pricing-list__price">from $85</div>
+        </article>
+      </div>
+
+      <div class="eyebrow" style="margin:64px 0 32px;">— Brows</div>
+      <div class="pricing-list">
+        <article id="brows" class="pricing-list__row">
+          <div class="pricing-list__name">Eyebrow Shaping <small>Threading or waxing — clean, soft shape.</small></div>
+          <div class="pricing-list__price">from $20</div>
+        </article>
+        <article id="brow-tint" class="pricing-list__row">
+          <div class="pricing-list__name">Eyebrow Tint & Shape <small>Tint plus shaping for fuller-looking brows.</small></div>
+          <div class="pricing-list__price">from $35</div>
+        </article>
+      </div>
+
     </div>
   </section>
 
