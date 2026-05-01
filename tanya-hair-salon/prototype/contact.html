@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Tanya Hair Salon, Coquitlam</title>
+<meta name="description" content="Visit Tanya Hair Salon at 8-2662 Austin Ave, Coquitlam. Call (604) 917-0266 or send a message — we usually reply within one business day." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <nav class="site-header__nav site-header__nav--left" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+    <a class="site-header__brand" href="index.html">Tanya Hair Salon<small>Coquitlam · Est. 2018</small></a>
+    <nav class="site-header__nav site-header__nav--right" aria-label="Secondary">
+      <a href="contact.html" class="is-active">Contact</a>
+      <a href="index.html#book" class="btn btn--primary">Book Now <span class="arrow">→</span></a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero container reveal">
+    <span class="eyebrow">Get in Touch</span>
+    <h1 class="h-display">Say hello.</h1>
+    <p class="lede">Questions about a service, product recommendation, or planning a bridal trial? Send us a note — we usually reply within one business day. To book, the fastest way is online.</p>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container contact-grid reveal">
+
+      <div>
+        <span class="eyebrow">The Studio</span>
+        <h2 class="h2">Visit us in Austin Heights.</h2>
+        <p>Free street parking out front, with additional lot parking behind the building. Two minutes from the Coquitlam Crunch trailhead.</p>
+
+        <dl class="contact-info">
+          <div>
+            <dt>Address</dt>
+            <dd>8-2662 Austin Ave<br/>Coquitlam, BC V3K 6C4</dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href="tel:+16049170266">(604) 917-0266</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:tanya.by.lillian@gmail.com">tanya.by.lillian@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>Mon – Sat · 10:00 AM – 6:00 PM<br/>Sunday · Closed</dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('Thanks — we will be in touch shortly.');">
+        <span class="eyebrow">Send a Message</span>
+
+        <div class="form-row">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="service">Service of Interest</label>
+          <select id="service" name="service">
+            <option>Haircut</option>
+            <option>Hair Color</option>
+            <option>Eyebrow Services</option>
+            <option>Hair Styling</option>
+            <option>Makeup</option>
+            <option>Hair Treatments</option>
+            <option>Bridal / Event</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="justify-self:start;">Send Message <span class="arrow">→</span></button>
+      </form>
+
+    </div>
+
+    <div class="container">
+      <div class="map-embed reveal">
+        <iframe loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=2662+Austin+Ave,+Coquitlam,+BC&output=embed"
+          title="Map to Tanya Hair Salon"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <div class="site-footer__brand">Tanya Hair Salon</div>
+        <p>A boutique hair studio in Coquitlam offering cuts, colour, eyebrow services, styling, makeup, and restorative treatments — by appointment.</p>
+      </div>
+      <div class="site-footer__col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="site-footer__col"><h4>Hours</h4><ul><li>Mon – Sat · 10–6</li><li>Sunday · Closed</li></ul></div>
+      <div class="site-footer__col"><h4>Visit</h4><ul><li>8-2662 Austin Ave</li><li>Coquitlam, BC V3K 6C4</li><li><a href="tel:+16049170266">(604) 917-0266</a></li><li><a href="mailto:tanya.by.lillian@gmail.com">Email the salon</a></li></ul></div>
+    </div>
+    <div class="site-footer__legal">
+      <span>© <span data-year>2026</span> Tanya Hair Salon. All rights reserved.</span>
+      <span>Coquitlam · British Columbia</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
