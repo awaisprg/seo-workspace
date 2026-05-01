@@ -1,0 +1,17 @@
+/*
+Theme Name: Tanya Hair Salon
+Theme URI: https://tanyahairsalon.ca
+Author: Tanya Hair Salon
+Author URI: https://tanyahairsalon.ca
+Description: An elegant, minimal boutique salon theme. Custom-built for TANYA HAIR SALON in Coquitlam, BC. Soft neutral palette, modern serif headings, generous whitespace, and a focus on bookings.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.5
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tanya-hair-salon
+Tags: block-styles, custom-colors, custom-menu, featured-images, full-site-editing, responsive
+*/
+
+/* Theme styles are in /assets/css/main.css and enqueued from functions.php. */

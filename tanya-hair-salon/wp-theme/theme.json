@@ -1,0 +1,134 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "780px",
+      "wideSize": "1240px"
+    },
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "custom": false,
+      "customGradient": false,
+      "defaultPalette": false,
+      "palette": [
+        { "slug": "bg",         "name": "Background",  "color": "#FAF7F2" },
+        { "slug": "surface",    "name": "Surface",     "color": "#FFFFFF" },
+        { "slug": "cream",      "name": "Cream",       "color": "#F2EBE1" },
+        { "slug": "blush",      "name": "Blush",       "color": "#E8D3CB" },
+        { "slug": "blush-deep", "name": "Blush Deep",  "color": "#C9A29A" },
+        { "slug": "ink",        "name": "Ink",         "color": "#2B2622" },
+        { "slug": "ink-soft",   "name": "Ink Soft",    "color": "#6B635C" },
+        { "slug": "line",       "name": "Line",        "color": "#E5DED4" },
+        { "slug": "gold",       "name": "Gold",        "color": "#B89968" }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fontFamilies": [
+        {
+          "slug": "display",
+          "name": "Display Serif",
+          "fontFamily": "'Cormorant Garamond', 'Playfair Display', Georgia, serif"
+        },
+        {
+          "slug": "body",
+          "name": "Body Sans",
+          "fontFamily": "'Inter', 'Helvetica Neue', system-ui, -apple-system, sans-serif"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small",   "name": "Small",   "size": "13px" },
+        { "slug": "medium",  "name": "Body",    "size": "16px" },
+        { "slug": "large",   "name": "Lede",    "size": "19px" },
+        { "slug": "xl",      "name": "H3",      "size": "32px" },
+        { "slug": "xxl",     "name": "H2",      "size": "56px" },
+        { "slug": "display", "name": "Display", "size": "clamp(44px, 7.2vw, 96px)" }
+      ]
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": true,
+      "units": ["px", "em", "rem", "%", "vh", "vw"],
+      "spacingScale": {
+        "operator": "*",
+        "increment": 1.5,
+        "steps": 8,
+        "mediumStep": 1.5,
+        "unit": "rem"
+      }
+    },
+    "border": {
+      "radius": true,
+      "color": true,
+      "style": true,
+      "width": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--bg)",
+      "text": "var(--wp--preset--color--ink)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--body)",
+      "fontSize": "16px",
+      "lineHeight": "1.7"
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontSize": "var(--wp--preset--font-size--display)",
+          "lineHeight": "1.05",
+          "fontWeight": "400",
+          "letterSpacing": "-0.01em"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontSize": "var(--wp--preset--font-size--xxl)",
+          "lineHeight": "1.1",
+          "fontWeight": "400"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontSize": "var(--wp--preset--font-size--xl)",
+          "lineHeight": "1.2",
+          "fontWeight": "500"
+        }
+      },
+      "link": {
+        "color": { "text": "var(--wp--preset--color--ink)" },
+        ":hover": { "color": { "text": "var(--wp--preset--color--blush-deep)" } }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--ink)",
+          "text": "var(--wp--preset--color--bg)"
+        },
+        "border": { "radius": "2px", "width": "1px", "color": "var(--wp--preset--color--ink)" },
+        "typography": {
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "letterSpacing": "0.14em",
+          "textTransform": "uppercase"
+        },
+        ":hover": {
+          "color": {
+            "background": "var(--wp--preset--color--bg)",
+            "text": "var(--wp--preset--color--ink)"
+          }
+        }
+      }
+    }
+  }
+}

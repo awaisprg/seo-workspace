@@ -1,0 +1,1 @@
+Replace this file with `screenshot.png` (1200×900) showing the homepage hero. WordPress uses it as the theme thumbnail in Appearance > Themes.
