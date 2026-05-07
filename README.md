@@ -4,6 +4,16 @@ Free AI-powered SEO toolkit by [SearchFit.ai](https://searchfit.ai) — works wi
 
 Audit websites, plan content strategy, optimize pages, generate schema markup, cluster keywords, track AI visibility, and more.
 
+## MCP Servers
+
+This workspace ships with an Ahrefs MCP server preconfigured in `.mcp.json` so Claude Code can pull live SEO data (keyword metrics, backlinks, rankings, site audits) directly from Ahrefs while running any of the skills below.
+
+| Server     | Endpoint                         | Auth                                 |
+| ---------- | -------------------------------- | ------------------------------------ |
+| **ahrefs** | `https://api.ahrefs.com/mcp/mcp` | OAuth — sign in on first tool call   |
+
+When you start Claude Code in this repo, approve the `ahrefs` MCP server when prompted, then complete the OAuth sign-in. After that, skills like SEO Audit, On-Page SEO, Keyword Clustering, Internal Linking, and Content Strategy can call Ahrefs tools directly.
+
 ## Installation
 
 Install from the Claude Code marketplace:
