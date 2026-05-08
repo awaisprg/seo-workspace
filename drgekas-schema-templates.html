@@ -1,213 +1,228 @@
 <!--
-  JSON-LD schema templates for stag5.drgekas.com (doctor practice).
+  JSON-LD schema for the Mindful Behavioral Solutions homepage
+  (staging URL: https://stag5.drgekas.com/).
 
-  Replace every placeholder wrapped in {{ ... }} with real data from the page.
-  Remove any block (or property) you don't have real data for - never fabricate.
-  Paste the populated <script> tags before </head> on the relevant page.
+  All facts below are taken directly from the supplied homepage copy.
+  Fields marked TODO are NOT on the page - fill them in (or delete the
+  property) before publishing. Do not invent data.
 
   Validate after editing: https://search.google.com/test/rich-results
 -->
 
 
-<!-- =========================================================
-     1. Physician / MedicalBusiness  (homepage, about page)
-     Use this if the site is a single-doctor practice.
-     ========================================================= -->
+<!-- ============================================================
+     1. MedicalBusiness  (the practice itself)
+     ============================================================ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["Physician", "MedicalBusiness"],
-  "@id": "https://drgekas.com/#physician",
-  "name": "{{ Practice / doctor display name, e.g. Dr. Gekas }}",
-  "url": "https://drgekas.com/",
-  "logo": "https://drgekas.com/{{ path/to/logo.png }}",
-  "image": "https://drgekas.com/{{ path/to/photo.jpg }}",
-  "description": "{{ One-sentence description of the practice }}",
-  "medicalSpecialty": "{{ e.g. Dermatology, Cardiology, GeneralPractice }}",
-  "telephone": "{{ +30-21-xxxxxxx }}",
-  "email": "{{ contact@drgekas.com }}",
-  "priceRange": "{{ $$ }}",
+  "@type": ["MedicalBusiness", "MedicalClinic"],
+  "@id": "https://stag5.drgekas.com/#practice",
+  "name": "Mindful Behavioral Solutions",
+  "url": "https://stag5.drgekas.com/",
+  "description": "Mental health care in Dallas, TX for children, teens, and adults. In-person and telepsychiatry services including mental health evaluation, medication management, and psychotherapy.",
+  "telephone": "+1-888-550-4842",
+  "medicalSpecialty": ["Psychiatric", "MentalHealth"],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "{{ Street and number }}",
-    "addressLocality": "{{ City }}",
-    "addressRegion": "{{ Region }}",
-    "postalCode": "{{ Postal code }}",
-    "addressCountry": "{{ ISO country code, e.g. GR }}"
+    "addressLocality": "Dallas",
+    "addressRegion": "TX",
+    "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "{{ 00.000000 }}",
-    "longitude": "{{ 00.000000 }}"
-  },
-  "openingHoursSpecification": [
+  "areaServed": [
+    { "@type": "State", "name": "Texas" },
+    { "@type": "State", "name": "California" },
+    { "@type": "State", "name": "New York" },
+    { "@type": "State", "name": "Florida" },
+    { "@type": "State", "name": "Illinois" }
+  ],
+  "availableService": [
+    { "@id": "https://stag5.drgekas.com/#service-evaluation" },
+    { "@id": "https://stag5.drgekas.com/#service-medication" },
+    { "@id": "https://stag5.drgekas.com/#service-psychotherapy" }
+  ],
+  "employee": [
+    { "@id": "https://stag5.drgekas.com/#faith-ogala" },
+    { "@id": "https://stag5.drgekas.com/#centrea-holton" },
+    { "@id": "https://stag5.drgekas.com/#chelsea-harris" }
+  ],
+  "review": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "{{ 09:00 }}",
-      "closes": "{{ 18:00 }}"
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Amee Odom" },
+      "reviewBody": "Absolutely love Dr. Faith! I have been with her almost 2 years. She is very empathetic and listens to your needs/concerns. She has helped me through my darkest times. She is always smiling and just a genuinely great person. She's also very knowledgeable - knows her stuff! Highly recommend!"
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Arnoldo Robles" },
+      "reviewBody": "I've been seeing Faith Ogala now for almost a year and she's been fantastic! She always listens to you and has your wellbeing in mind! Would absolutely recommend her!"
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Alexandria B." },
+      "reviewBody": "Faith is AMAZING! I have been seeing her for a couple years now, and I have never met a medical professional who is more kind and helpful. When my daughter went through a mental health crisis, Faith took her on as well. She works tirelessly to get the right combination of medication and takes extra time to talk to and encourage patients."
     }
   ],
-  "areaServed": {
-    "@type": "City",
-    "name": "{{ City served }}"
-  },
-  "availableLanguage": ["{{ Greek }}", "{{ English }}"],
+  "logo": "TODO https://stag5.drgekas.com/path/to/logo.png",
+  "image": "TODO https://stag5.drgekas.com/path/to/storefront.jpg",
+  "email": "TODO contact@mindfulbehavioralsolutions.com",
+  "address.streetAddress": "TODO street + number",
+  "address.postalCode": "TODO zip",
+  "openingHoursSpecification": "TODO add OpeningHoursSpecification block when hours are confirmed",
   "sameAs": [
-    "{{ https://www.facebook.com/... }}",
-    "{{ https://www.instagram.com/... }}",
-    "{{ https://www.linkedin.com/in/... }}"
+    "TODO https://www.facebook.com/...",
+    "TODO https://www.instagram.com/...",
+    "TODO https://www.linkedin.com/company/..."
   ]
 }
 </script>
 
 
-<!-- =========================================================
-     2. Person  (the doctor as an individual)
-     Use in addition to Physician above when there is a bio.
-     ========================================================= -->
+<!-- ============================================================
+     2. Practitioners (Person + memberOf the practice)
+     ============================================================ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://drgekas.com/#person",
-  "name": "{{ Full name with title, e.g. Dr. Firstname Gekas }}",
-  "honorificPrefix": "Dr.",
-  "honorificSuffix": "{{ MD, PhD, etc. }}",
-  "jobTitle": "{{ Specialty / job title }}",
-  "image": "https://drgekas.com/{{ path/to/portrait.jpg }}",
-  "url": "https://drgekas.com/{{ about-page-slug }}",
-  "worksFor": { "@id": "https://drgekas.com/#physician" },
-  "alumniOf": [
-    {
-      "@type": "EducationalOrganization",
-      "name": "{{ Medical school }}"
-    }
-  ],
-  "knowsLanguage": ["{{ el }}", "{{ en }}"],
-  "sameAs": [
-    "{{ https://www.linkedin.com/in/... }}"
-  ]
+  "@id": "https://stag5.drgekas.com/#faith-ogala",
+  "name": "Faith Ogala",
+  "honorificSuffix": "DNP, PMHNP-BC",
+  "jobTitle": "Board-Certified Psychiatric-Mental Health Nurse Practitioner",
+  "description": "Board-Certified PMHNP providing telehealth and in-person psychiatric care.",
+  "worksFor": { "@id": "https://stag5.drgekas.com/#practice" },
+  "image": "TODO https://stag5.drgekas.com/path/to/faith-ogala.jpg",
+  "url": "TODO https://stag5.drgekas.com/team/faith-ogala/"
 }
 </script>
 
-
-<!-- =========================================================
-     3. Organization  (use INSTEAD of Physician on a corporate
-        site that is not a clinical practice; otherwise omit)
-     ========================================================= -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://drgekas.com/#organization",
-  "name": "{{ Organization name }}",
-  "url": "https://drgekas.com/",
-  "logo": "https://drgekas.com/{{ path/to/logo.png }}",
-  "description": "{{ Short description }}",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "{{ +30-21-xxxxxxx }}",
-    "contactType": "customer service",
-    "availableLanguage": ["Greek", "English"]
-  },
-  "sameAs": [
-    "{{ https://www.facebook.com/... }}",
-    "{{ https://www.instagram.com/... }}"
-  ]
+  "@type": "Person",
+  "@id": "https://stag5.drgekas.com/#centrea-holton",
+  "name": "Centrea Holton",
+  "honorificSuffix": "MSN, APRN, PMHNP-BC",
+  "jobTitle": "Board-Certified Psychiatric-Mental Health Nurse Practitioner",
+  "description": "Board-Certified PMHNP delivering compassionate, patient-centered, individualized treatment via telehealth and in-person visits.",
+  "worksFor": { "@id": "https://stag5.drgekas.com/#practice" },
+  "image": "TODO https://stag5.drgekas.com/path/to/centrea-holton.jpg",
+  "url": "TODO https://stag5.drgekas.com/team/centrea-holton/"
 }
 </script>
 
-
-<!-- =========================================================
-     4. WebSite  (enables sitelinks search box if you have
-        on-site search; remove potentialAction otherwise)
-     ========================================================= -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://drgekas.com/#website",
-  "url": "https://drgekas.com/",
-  "name": "{{ Site name }}",
-  "publisher": { "@id": "https://drgekas.com/#physician" },
-  "inLanguage": "{{ el }}",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://drgekas.com/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "@type": "Person",
+  "@id": "https://stag5.drgekas.com/#chelsea-harris",
+  "name": "Chelsea Harris",
+  "honorificSuffix": "LPC-A",
+  "jobTitle": "Licensed Professional Counselor Associate",
+  "description": "Provides compassionate psychotherapy and support in Dallas, TX.",
+  "worksFor": { "@id": "https://stag5.drgekas.com/#practice" },
+  "image": "TODO https://stag5.drgekas.com/path/to/chelsea-harris.jpg",
+  "url": "TODO https://stag5.drgekas.com/team/chelsea-harris/"
 }
 </script>
 
 
-<!-- =========================================================
-     5. BreadcrumbList  (add per page; example shows depth 2)
-     ========================================================= -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://drgekas.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "{{ Section name }}",
-      "item": "https://drgekas.com/{{ section-slug }}/"
-    }
-  ]
-}
-</script>
-
-
-<!-- =========================================================
-     6. MedicalProcedure  (one block per service / treatment)
-     ========================================================= -->
+<!-- ============================================================
+     3. Services offered  (one MedicalProcedure per service)
+     ============================================================ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalProcedure",
-  "name": "{{ Procedure / service name }}",
-  "description": "{{ What it is and what it treats }}",
-  "url": "https://drgekas.com/{{ service-slug }}/",
-  "procedureType": "{{ e.g. Therapeutic, Diagnostic, Surgical }}",
-  "bodyLocation": "{{ Body part, if applicable }}",
-  "performer": { "@id": "https://drgekas.com/#physician" }
+  "@id": "https://stag5.drgekas.com/#service-evaluation",
+  "name": "Mental Health Evaluation",
+  "description": "A real conversation, not a checklist. We take time to understand what you've been feeling, what's changed, and what's been weighing on you. You leave with a clearer sense of what's going on and what to do about it.",
+  "procedureType": "https://schema.org/DiagnosticProcedure",
+  "performer": { "@id": "https://stag5.drgekas.com/#practice" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "@id": "https://stag5.drgekas.com/#service-medication",
+  "name": "Medication Management",
+  "description": "Thoughtful, simple medication management. We walk you through what makes sense, adjust when needed, and make sure you feel comfortable with the process so you feel steady, not different.",
+  "procedureType": "https://schema.org/TherapeuticProcedure",
+  "performer": { "@id": "https://stag5.drgekas.com/#practice" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "@id": "https://stag5.drgekas.com/#service-psychotherapy",
+  "name": "Psychotherapy",
+  "description": "We help you navigate your struggles through detailed conversations - observing the condition, analyzing the roots, and treating with the right approach.",
+  "procedureType": "https://schema.org/TherapeuticProcedure",
+  "performer": { "@id": "https://stag5.drgekas.com/#practice" }
 }
 </script>
 
 
-<!-- =========================================================
-     7. FAQPage  (only if Q&A is visible on the page)
-     ========================================================= -->
+<!-- ============================================================
+     4. Conditions treated  (MedicalCondition list, optional but
+        useful for entity / topical relevance)
+     ============================================================ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "{{ Question 1 exactly as shown on page }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ Answer 1 exactly as shown on page }}"
-      }
+      "@type": "MedicalCondition",
+      "name": "ADHD",
+      "alternateName": "Attention Deficit Hyperactivity Disorder",
+      "description": "You try to focus, but your mind keeps jumping. We help you slow it down and stay on track."
     },
     {
-      "@type": "Question",
-      "name": "{{ Question 2 }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ Answer 2 }}"
-      }
+      "@type": "MedicalCondition",
+      "name": "Anxiety",
+      "description": "You overthink, replay things and expect the worst. We help you quiet the noise and breathe again."
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Bipolar Disorder",
+      "description": "Some days feel too high, others too low. We help you find a middle ground that feels stable."
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Depression",
+      "description": "You feel drained, disconnected, maybe numb. We help you slowly find your way back."
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Substance Use Disorder",
+      "description": "We help you understand and take back control without judgment."
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Eating Disorder",
+      "description": "Space to talk about food, body image, and control, and start healing your relationship with it."
     }
   ]
+}
+</script>
+
+
+<!-- ============================================================
+     5. WebSite (canonical site entity)
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://stag5.drgekas.com/#website",
+  "url": "https://stag5.drgekas.com/",
+  "name": "Mindful Behavioral Solutions",
+  "publisher": { "@id": "https://stag5.drgekas.com/#practice" },
+  "inLanguage": "en-US"
 }
 </script>
 
@@ -215,11 +230,22 @@
 <!--
   Notes
   -----
-  * Google currently shows FAQ rich results only for authoritative
-    government / health sites. Keep the markup - it still helps semantic
-    understanding - but don't expect rich snippets.
-  * Do NOT add aggregateRating / Review unless ratings are visibly shown
-    on the page. Off-page reviews are a policy violation.
-  * Use the SAME @id values across pages so the entities link together.
-  * Keep absolute URLs; no relative paths inside JSON-LD.
+  * Replace EVERY "TODO ..." value with the real value before publishing,
+    or delete the property if it doesn't apply. Do not leave "TODO" strings
+    in production markup - they will fail Rich Results validation.
+  * Once you move from staging to production, replace
+    https://stag5.drgekas.com with the canonical production domain
+    (search-and-replace).
+  * aggregateRating is intentionally omitted: "85% of clients are happy"
+    is not a numeric rating Google will accept. If you collect a real
+    1-5 star average from a review platform, you can add:
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "x.x",
+          "reviewCount": "n"
+        }
+  * Insurance logos (Ambetter, Humana, Cigna, Aetna, BCBS, TRICARE) are
+    branding only - they don't have a schema.org type, so they are not
+    encoded.
+  * For inner service pages, also add a BreadcrumbList per page.
 -->
