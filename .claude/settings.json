@@ -1,13 +1,15 @@
 {
-  "extraKnownMarketplaces": {
-    "agricidaniel-seo": {
-      "source": {
-        "source": "local",
-        "path": "./.claude/plugins/claude-seo"
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/plugins/claude-seo/hooks/validate-schema.py\" \"$FILE_PATH\""
+          }
+        ]
       }
-    }
-  },
-  "enabledPlugins": {
-    "claude-seo@agricidaniel-seo": true
+    ]
   }
 }

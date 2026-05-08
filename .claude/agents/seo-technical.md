@@ -1,0 +1,1 @@
+../plugins/claude-seo/agents/seo-technical.md
