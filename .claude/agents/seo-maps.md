@@ -1,0 +1,1 @@
+../plugins/claude-seo/agents/seo-maps.md

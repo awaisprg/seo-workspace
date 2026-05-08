@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/plugins/claude-seo/hooks/validate-schema.py\" \"$FILE_PATH\""
+          }
+        ]
+      }
+    ]
+  }
+}
