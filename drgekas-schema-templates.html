@@ -1,0 +1,225 @@
+<!--
+  JSON-LD schema templates for stag5.drgekas.com (doctor practice).
+
+  Replace every placeholder wrapped in {{ ... }} with real data from the page.
+  Remove any block (or property) you don't have real data for - never fabricate.
+  Paste the populated <script> tags before </head> on the relevant page.
+
+  Validate after editing: https://search.google.com/test/rich-results
+-->
+
+
+<!-- =========================================================
+     1. Physician / MedicalBusiness  (homepage, about page)
+     Use this if the site is a single-doctor practice.
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Physician", "MedicalBusiness"],
+  "@id": "https://drgekas.com/#physician",
+  "name": "{{ Practice / doctor display name, e.g. Dr. Gekas }}",
+  "url": "https://drgekas.com/",
+  "logo": "https://drgekas.com/{{ path/to/logo.png }}",
+  "image": "https://drgekas.com/{{ path/to/photo.jpg }}",
+  "description": "{{ One-sentence description of the practice }}",
+  "medicalSpecialty": "{{ e.g. Dermatology, Cardiology, GeneralPractice }}",
+  "telephone": "{{ +30-21-xxxxxxx }}",
+  "email": "{{ contact@drgekas.com }}",
+  "priceRange": "{{ $$ }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ Street and number }}",
+    "addressLocality": "{{ City }}",
+    "addressRegion": "{{ Region }}",
+    "postalCode": "{{ Postal code }}",
+    "addressCountry": "{{ ISO country code, e.g. GR }}"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ 00.000000 }}",
+    "longitude": "{{ 00.000000 }}"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "{{ 09:00 }}",
+      "closes": "{{ 18:00 }}"
+    }
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "{{ City served }}"
+  },
+  "availableLanguage": ["{{ Greek }}", "{{ English }}"],
+  "sameAs": [
+    "{{ https://www.facebook.com/... }}",
+    "{{ https://www.instagram.com/... }}",
+    "{{ https://www.linkedin.com/in/... }}"
+  ]
+}
+</script>
+
+
+<!-- =========================================================
+     2. Person  (the doctor as an individual)
+     Use in addition to Physician above when there is a bio.
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://drgekas.com/#person",
+  "name": "{{ Full name with title, e.g. Dr. Firstname Gekas }}",
+  "honorificPrefix": "Dr.",
+  "honorificSuffix": "{{ MD, PhD, etc. }}",
+  "jobTitle": "{{ Specialty / job title }}",
+  "image": "https://drgekas.com/{{ path/to/portrait.jpg }}",
+  "url": "https://drgekas.com/{{ about-page-slug }}",
+  "worksFor": { "@id": "https://drgekas.com/#physician" },
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "{{ Medical school }}"
+    }
+  ],
+  "knowsLanguage": ["{{ el }}", "{{ en }}"],
+  "sameAs": [
+    "{{ https://www.linkedin.com/in/... }}"
+  ]
+}
+</script>
+
+
+<!-- =========================================================
+     3. Organization  (use INSTEAD of Physician on a corporate
+        site that is not a clinical practice; otherwise omit)
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://drgekas.com/#organization",
+  "name": "{{ Organization name }}",
+  "url": "https://drgekas.com/",
+  "logo": "https://drgekas.com/{{ path/to/logo.png }}",
+  "description": "{{ Short description }}",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{ +30-21-xxxxxxx }}",
+    "contactType": "customer service",
+    "availableLanguage": ["Greek", "English"]
+  },
+  "sameAs": [
+    "{{ https://www.facebook.com/... }}",
+    "{{ https://www.instagram.com/... }}"
+  ]
+}
+</script>
+
+
+<!-- =========================================================
+     4. WebSite  (enables sitelinks search box if you have
+        on-site search; remove potentialAction otherwise)
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://drgekas.com/#website",
+  "url": "https://drgekas.com/",
+  "name": "{{ Site name }}",
+  "publisher": { "@id": "https://drgekas.com/#physician" },
+  "inLanguage": "{{ el }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://drgekas.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+<!-- =========================================================
+     5. BreadcrumbList  (add per page; example shows depth 2)
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://drgekas.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ Section name }}",
+      "item": "https://drgekas.com/{{ section-slug }}/"
+    }
+  ]
+}
+</script>
+
+
+<!-- =========================================================
+     6. MedicalProcedure  (one block per service / treatment)
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "{{ Procedure / service name }}",
+  "description": "{{ What it is and what it treats }}",
+  "url": "https://drgekas.com/{{ service-slug }}/",
+  "procedureType": "{{ e.g. Therapeutic, Diagnostic, Surgical }}",
+  "bodyLocation": "{{ Body part, if applicable }}",
+  "performer": { "@id": "https://drgekas.com/#physician" }
+}
+</script>
+
+
+<!-- =========================================================
+     7. FAQPage  (only if Q&A is visible on the page)
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{ Question 1 exactly as shown on page }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ Answer 1 exactly as shown on page }}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{ Question 2 }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ Answer 2 }}"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!--
+  Notes
+  -----
+  * Google currently shows FAQ rich results only for authoritative
+    government / health sites. Keep the markup - it still helps semantic
+    understanding - but don't expect rich snippets.
+  * Do NOT add aggregateRating / Review unless ratings are visibly shown
+    on the page. Off-page reviews are a policy violation.
+  * Use the SAME @id values across pages so the entities link together.
+  * Keep absolute URLs; no relative paths inside JSON-LD.
+-->
