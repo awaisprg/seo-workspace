@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "agricidaniel-seo": {
+      "source": {
+        "source": "local",
+        "path": "./.claude/plugins/claude-seo"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "claude-seo@agricidaniel-seo": true
+  }
+}
